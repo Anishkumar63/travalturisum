@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jharkhand Eco-Cultural Tourism</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --secondary: #ff9800;
+            --light: #f5f5f5;
+            --dark: #333;
+            --text: #444;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 25px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .auth-buttons button {
+            padding: 8px 20px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .login-btn {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary) !important;
+        }
+        
+        .signup-btn {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .auth-buttons button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/1600x900/?jharkhand,forest') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #e68900;
+            transform: translateY(-3px);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+        
+        /* Destinations Section */
+        .destinations {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .destination-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        
+        .destination-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .destination-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .destination-info {
+            padding: 20px;
+        }
+        
+        .destination-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+        
+        .destination-info p {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .destination-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .tag {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .tag.eco {
+            background-color: #4caf50;
+        }
+        
+        .tag.cultural {
+            background-color: #ff9800;
+        }
+        
+        .tag.adventure {
+            background-color: #f44336;
+        }
+        
+        .view-details {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .view-details:hover {
+            color: var(--primary-dark);
+        }
+        
+        /* Cultural Highlights */
+        .cultural {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .cultural-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .cultural-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .cultural-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .cultural-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            padding: 60px 0;
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .newsletter h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button {
+            padding: 0 25px;
+            background-color: var(--secondary);
+            color: var(--white);
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #e68900;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--secondary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links, .auth-buttons {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 4px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 4px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMTAwIj48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzJlN2QzMiIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjUwIiByPSIzMCIgZmlsbD0iI2ZmZjgwMCIvPjxwYXRoIGQ9Ik03MCA1MEwxMzAgMzBNNzAgNTBMMTMwIDcwIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+" alt="Jharkhand Tourism Logo">
+                    <h1>Jharkhand Eco-Culture</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Destinations</a></li>
+                    <li><a href="#">Experiences</a></li>
+                    <li><a href="#">Culture</a></li>
+                    <li><a href="#">Eco-Tourism</a></li>
+                    <li><a href="#">Plan Your Trip</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <button class="login-btn">Login</button>
+                    <button class="signup-btn">Sign Up</button>
+                </div>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Discover the Green Heart of India</h2>
+                <p>Explore Jharkhand's pristine forests, rich tribal culture, and sustainable tourism experiences</p>
+                <a href="#" class="cta-button">Start Your Journey</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Jharkhand?</h2>
+                <p>Experience sustainable tourism that preserves nature and celebrates indigenous culture</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Eco-Friendly Tourism</h3>
+                    <p>Explore responsibly with minimal environmental impact and support conservation efforts</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Community-Led Experiences</h3>
+                    <p>Directly benefit local communities through authentic cultural exchanges</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Unique Destinations</h3>
+                    <p>Discover hidden gems away from crowded tourist trails</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section class="destinations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Destinations</h2>
+                <p>From lush forests to cultural hubs, explore Jharkhand's diverse attractions</p>
+            </div>
+            <div class="destinations-grid">
+                <div class="destination-card">
+                    <img src="https://source.unsplash.com/600x400/?forest,jharkhand" alt="Betla National Park" class="destination-img">
+                    <div class="destination-info">
+                        <h3>Betla National Park</h3>
+                        <div class="destination-tags">
+                            <span class="tag eco">Eco-Tourism</span>
+                            <span class="tag adventure">Wildlife</span>
+                        </div>
+                        <p>Home to tigers, elephants, and diverse flora in the Palamau Tiger Reserve</p>
+                        <a href="#" class="view-details">View Details →</a>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="https://source.unsplash.com/600x400/?waterfall,jharkhand" alt="Hundru Falls" class="destination-img">
+                    <div class="destination-info">
+                        <h3>Hundru Falls</h3>
+                        <div class="destination-tags">
+                            <span class="tag eco">Nature</span>
+                            <span class="tag adventure">Adventure</span>
+                        </div>
+                        <p>Spectacular waterfall on the Subarnarekha River, perfect for picnics and photography</p>
+                        <a href="#" class="view-details">View Details →</a>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="https://source.unsplash.com/600x400/?tribal,art" alt="Tribal Village" class="destination-img">
+                    <div class="destination-info">
+                        <h3>Tribal Heritage Villages</h3>
+                        <div class="destination-tags">
+                            <span class="tag cultural">Cultural</span>
+                            <span class="tag eco">Community</span>
+                        </div>
+                        <p>Immerse yourself in the rich traditions of Jharkhand's indigenous communities</p>
+                        <a href="#" class="view-details">View Details →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultural Highlights -->
+    <section class="cultural">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cultural Highlights</h2>
+                <p>Experience the vibrant traditions of Jharkhand's tribal communities</p>
+            </div>
+            <div class="cultural-grid">
+                <div class="cultural-item">
+                    <div class="cultural-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Folk Music & Dance</h3>
+                    <p>Traditional performances like Chhau, Jhumair, and Domkach</p>
+                </div>
+                <div class="cultural-item">
+                    <div class="cultural-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Local Cuisine</h3>
+                    <p>Authentic tribal dishes and traditional cooking methods</p>
+                </div>
+                <div class="cultural-item">
+                    <div class="cultural-icon">
+                        <i class="fas fa-hands"></i>
+                    </div>
+                    <h3>Handicrafts</h3>
+                    <p>Beautiful tribal art, pottery, bamboo work, and metal crafts</p>
+                </div>
+                <div class="cultural-item">
+                    <div class="cultural-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Festivals</h3>
+                    <p>Colorful celebrations like Sarhul, Karma, and Tusu Parab</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter for the latest eco-tourism opportunities and cultural events</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Jharkhand Eco-Culture</h3>
+                    <p>Promoting sustainable tourism that celebrates nature and indigenous heritage.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Destinations</a></li>
+                        <li><a href="#">Cultural Experiences</a></li>
+                        <li><a href="#">Eco-Tourism Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Travel Tips</a></li>
+                        <li><a href="#">Sustainable Practices</a></li>
+                        <li><a href="#">Community Initiatives</a></li>
+                        <li><a href="#">Photo Gallery</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Ranchi, Jharkhand</li>
+                        <li><i class="fas fa-phone"></i> +91 123 456 7890</li>
+                        <li><i class="fas fa-envelope"></i> info@jharkhandtourism.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Jharkhand Eco-Cultural Tourism Platform. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            const authButtons = document.querySelector('.auth-buttons');
+            
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+                authButtons.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                authButtons.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                authButtons.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '80px';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.backgroundColor = 'var(--white)';
+                navLinks.style.padding = '20px';
+                
+                authButtons.style.position = 'absolute';
+                authButtons.style.top = '250px';
+                authButtons.style.left = '0';
+                authButtons.style.width = '100%';
+                authButtons.style.backgroundColor = 'var(--white)';
+                authButtons.style.padding = '20px';
+            }
+        });
+        
+        // Newsletter form submission
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            if (email) {
+                alert('Thank you for subscribing with: ' + email);
+                this.querySelector('input').value = '';
+            }
+        });
+    </script>
+</body>
+</html>

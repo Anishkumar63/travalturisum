@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jharkhand Eco-Cultural Explorer | Sustainable Tourism</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --secondary: #ff9800;
+            --accent: #8d6e63;
+            --light: #f5f5f5;
+            --dark: #333;
+            --text: #444;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f9f9f9;
+        }
+
+        .hindi {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            font-size: 0.9rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--dark);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #e68900;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .search-box {
+            background: white;
+            border-radius: 50px;
+            padding: 5px;
+            max-width: 600px;
+            margin: 2rem auto;
+            display: flex;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 50px;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .search-box button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .feature-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .feature-card:hover .feature-img img {
+            transform: scale(1.1);
+        }
+
+        .feature-content {
+            padding: 1.5rem;
+        }
+
+        .feature-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+
+        .feature-content p {
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .feature-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Map Section */
+        .map-section {
+            background: var(--light);
+        }
+
+        .map-container {
+            height: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Carbon Calculator */
+        .calculator {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .result {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin-top: 1.5rem;
+            text-align: center;
+            display: none;
+        }
+
+        .eco-score {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+
+        /* Marketplace */
+        .marketplace-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Chatbot */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chatbot-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .chatbot-btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.1);
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 350px;
+            height: 450px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+        }
+
+        .chatbot-header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-body {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        .chatbot-footer {
+            padding: 1rem;
+            border-top: 1px solid #eee;
+            display: flex;
+        }
+
+        .chatbot-footer input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            outline: none;
+        }
+
+        .chatbot-footer button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .chatbot-window {
+                width: 300px;
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-mountain fa-2x" style="color: #ff9800;"></i>
+                <div>
+                    <h1>Jharkhand <span>Explorer</span></h1>
+                    <p class="hindi">झारखंड इको-कल्चरल एक्सप्लोरर</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#eco-travel">Eco Travel</a></li>
+                    <li><a href="#culture">Culture</a></li>
+                    <li><a href="#marketplace">Marketplace</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button class="btn btn-outline">Login</button>
+                <button class="btn btn-primary">Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Discover the Unexplored Beauty of Jharkhand</h2>
+            <p>Experience sustainable tourism through eco-friendly destinations, rich tribal culture, and breathtaking natural wonders.</p>
+            <div class="search-box">
+                <input type="text" placeholder="Search destinations, activities, or cultural experiences...">
+                <button><i class="fas fa-search"></i> Search</button>
+            </div>
+            <div>
+                <button class="btn btn-primary"><i class="fas fa-map-marked-alt"></i> Interactive Map</button>
+                <button class="btn btn-secondary"><i class="fas fa-leaf"></i> Eco Calculator</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="destinations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Destinations</h2>
+                <p>Explore Jharkhand's most breathtaking eco-tourism spots and cultural heritage sites</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1598894595350-70d57dc46b49?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Netarhat">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Netarhat <span class="hindi">(नेतरहाट)</span></h3>
+                        <p>Known as the "Queen of Chotanagpur", this hill station offers breathtaking sunrise and sunset views.</p>
+                        <a href="#" class="feature-link">Explore <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Betla National Park">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Betla National Park <span class="hindi">(बेतला राष्ट्रीय उद्यान)</span></h3>
+                        <p>Home to tigers, elephants, and diverse wildlife, this park offers thrilling jungle safaris.</p>
+                        <a href="#" class="feature-link">Explore <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Dassam Falls">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Dassam Falls <span class="hindi">(दसम फॉल्स)</span></h3>
+                        <p>A magnificent waterfall on the Subarnarekha River, perfect for nature lovers and photographers.</p>
+                        <a href="#" class="feature-link">Explore <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Interactive Tourism Map</h2>
+                <p>Discover Jharkhand's attractions with our interactive map featuring AR/VR experiences</p>
+            </div>
+            <div class="map-container">
+                <!-- Map would be integrated here with Leaflet/Google Maps -->
+                <div style="width:100%; height:100%; background: #ddd; display: flex; align-items: center; justify-content: center; color: #666;">
+                    <div style="text-align: center;">
+                        <i class="fas fa-map fa-3x" style="margin-bottom: 1rem;"></i>
+                        <p>Interactive Map Integration</p>
+                        <button class="btn btn-primary" style="margin-top: 1rem;"><i class="fas fa-vr-cardboard"></i> Launch AR Experience</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eco Travel Section -->
+    <section id="eco-travel">
+        <div class="container">
+            <div class="section-title">
+                <h2>Eco-Friendly Travel</h2>
+                <p>Calculate your carbon footprint and discover sustainable travel options</p>
+            </div>
+            <div class="calculator">
+                <h3 style="text-align: center; margin-bottom: 1.5rem;">Carbon Footprint Calculator</h3>
+                <div class="form-group">
+                    <label for="transport">Mode of Transport</label>
+                    <select id="transport">
+                        <option value="car">Car</option>
+                        <option value="bus">Bus</option>
+                        <option value="train">Train</option>
+                        <option value="bike">Bicycle</option>
+                        <option value="walk">Walking</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="distance">Distance (km)</label>
+                    <input type="number" id="distance" placeholder="Enter distance">
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration of Stay (days)</label>
+                    <input type="number" id="duration" placeholder="Enter days">
+                </div>
+                <button class="btn btn-primary" style="width: 100%;" onclick="calculateFootprint()">Calculate Footprint</button>
+                <div class="result" id="result">
+                    <h3>Your Trip Carbon Footprint</h3>
+                    <div class="eco-score" id="score">4.2 kg CO2</div>
+                    <p>This is <span id="comparison">25% lower</span> than average trips of similar distance.</p>
+                    <p id="suggestion">Consider taking a train instead of a car to reduce your footprint further.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section id="culture" style="background: var(--light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cultural Heritage</h2>
+                <p>Explore Jharkhand's rich tribal traditions, arts, and festivals</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Tribal Dance">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Tribal Dances <span class="hindi">(आदिवासी नृत्य)</span></h3>
+                        <p>Experience vibrant tribal dances like Chhau, Karma, and Santhal dances.</p>
+                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Handicrafts">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Handicrafts <span class="hindi">(हस्तशिल्प)</span></h3>
+                        <p>Discover exquisite bamboo work, wood carving, and traditional pottery.</p>
+                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Festivals">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Festivals <span class="hindi">(त्यौहार)</span></h3>
+                        <p>Celebrate Sarhul, Karma, Sohrai and other vibrant tribal festivals.</p>
+                        <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marketplace Section -->
+    <section id="marketplace">
+        <div class="container">
+            <div class="section-title">
+                <h2>Artisan Marketplace</h2>
+                <p>Support local communities by purchasing authentic tribal handicrafts directly from artisans</p>
+            </div>
+            <div class="marketplace-grid">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1562596987-0b4e4c2b0e21?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Bamboo Craft">
+                    </div>
+                    <div class="product-content">
+                        <h3>Bamboo Handicraft</h3>
+                        <p>Handmade bamboo basket by Santhal artisans</p>
+                        <div class="product-price">₹850</div>
+                        <button class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1604176354204-926ae7b32ef0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Tribal Jewelry">
+                    </div>
+                    <div class="product-content">
+                        <h3>Traditional Jewelry</h3>
+                        <p>Authentic tribal necklace with natural beads</p>
+                        <div class="product-price">₹1,200</div>
+                        <button class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Wood Carving">
+                    </div>
+                    <div class="product-content">
+                        <h3>Wood Carving Art</h3>
+                        <p>Intricately carved wooden wall hanging</p>
+                        <div class="product-price">₹2,500</div>
+                        <button class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Handloom">
+                    </div>
+                    <div class="product-content">
+                        <h3>Handloom Saree</h3>
+                        <p>Traditional tribal handloom cotton saree</p>
+                        <div class="product-price">₹1,800</div>
+                        <button class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <button class="btn btn-secondary">View All Products</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <div class="chatbot-btn" id="chatbotBtn">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <h3>Travel Assistant</h3>
+                <button style="background: none; border: none; color: white; font-size: 1.2rem;" id="closeChatbot">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chatbot-body" id="chatbotBody">
+                <div class="chat-message bot-message">
+                    <p>Namaste! I'm your Jharkhand travel assistant. How can I help you today?</p>
+                </div>
+            </div>
+            <div class="chatbot-footer">
+                <input type="text" placeholder="Ask about destinations, culture, or travel tips..." id="chatInput">
+                <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Jharkhand Explorer</h3>
+                    <p>Promoting sustainable tourism and preserving the cultural heritage of Jharkhand.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#destinations">Destinations</a></li>
+                        <li><a href="#eco-travel">Eco Travel</a></li>
+                        <li><a href="#culture">Cultural Heritage</a></li>
+                        <li><a href="#marketplace">Marketplace</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Ranchi, Jharkhand</li>
+                        <li><i class="fas fa-phone"></i> +91 123 456 7890</li>
+                        <li><i class="fas fa-envelope"></i> info@jharkhandexplorer.com</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get updates on festivals, eco-tourism initiatives, and special offers.</p>
+                    <div class="search-box" style="margin-top: 1rem;">
+                        <input type="email" placeholder="Your email">
+                        <button><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Jharkhand Eco-Cultural Explorer. All rights reserved. | <span class="hindi">झारखंड इको-कल्चरल एक्सप्लोरर</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Carbon Footprint Calculator
+        function calculateFootprint() {
+            const transport = document.getElementById('transport').value;
+            const distance = parseFloat(document.getElementById('distance').value) || 0;
+            const duration = parseInt(document.getElementById('duration').value) || 1;
+            
+            // Simple calculation (in a real app, this would be more sophisticated)
+            let footprintPerKm = 0;
+            
+            switch(transport) {
+                case 'car': footprintPerKm = 0.21; break;
+                case 'bus': footprintPerKm = 0.08; break;
+                case 'train': footprintPerKm = 0.05; break;
+                case 'bike': footprintPerKm = 0; break;
+                case 'walk': footprintPerKm = 0; break;
+            }
+            
+            const totalFootprint = (distance * footprintPerKm * 2) + (duration * 10); // Round trip + daily footprint
+            
+            document.getElementById('score').textContent = totalFootprint.toFixed(1) + ' kg CO2';
+            
+            // Provide comparison and suggestions
+            const avgFootprint = (distance * 0.15 * 2) + (duration * 15);
+            const difference = ((avgFootprint - totalFootprint) / avgFootprint) * 100;
+            
+            if (difference > 0) {
+                document.getElementById('comparison').textContent = Math.abs(difference).toFixed(0) + '% lower';
+            } else {
+                document.getElementById('comparison').textContent = Math.abs(difference).toFixed(0) + '% higher';
+            }
+            
+            // Suggestions based on footprint
+            if (totalFootprint > 50) {
+                document.getElementById('suggestion').textContent = 'Consider eco-friendly accommodations and local transport to reduce your footprint.';
+            } else {
+                document.getElementById('suggestion').textContent = 'Great! You\'re making eco-conscious travel choices.';
+            }
+            
+            document.getElementById('result').style.display = 'block';
+        }
+
+        // Chatbot functionality
+        document.getElementById('chatbotBtn').addEventListener('click', function() {
+            document.getElementById('chatbotWindow').style.display = 'flex';
+        });
+        
+        document.getElementById('closeChatbot').addEventListener('click', function() {
+            document.getElementById('chatbotWindow').style.display = 'none';
+        });
+        
+        document.getElementById('sendMessage').addEventListener('click', function() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                // Add user message
+                const userMessage = document.createElement('div');
+                userMessage.className = 'chat-message';
+                userMessage.innerHTML = <p><strong>You:</strong> ${message}</p>;
+                document.getElementById('chatbotBody').appendChild(userMessage);
+                
+                // Clear input
+                input.value = '';
+                
+                // Simulate bot response
+                setTimeout(function() {
+                    const botMessage = document.createElement('div');
+                    botMessage.className = 'chat-message bot-message';
+                    
+                    let response = "I can help you with information about Jharkhand's tourism. For detailed queries, please contact our support team.";
+                    
+                    if (message.toLowerCase().includes('waterfall') || message.includes('झरना')) {
+                        response = "Jharkhand has beautiful waterfalls like Dassam Falls, Hundru Falls, and Jonha Falls. I recommend visiting during monsoon for the best experience.";
+                    } else if (message.toLowerCase().includes('hotel') || message.includes('होटेल')) {
+                        response = "We have eco-friendly hotels and homestays across Jharkhand. You can book through our platform for certified green accommodations.";
+                    } else if (message.toLowerCase().includes('tribal') || message.includes('आदिवासी')) {
+                        response = "Jharkhand has rich tribal culture with communities like Santhal, Munda, Oraon, and Ho. You can experience their dances, art, and festivals.";
+                    }
+                    
+                    botMessage.innerHTML = <p><strong>Assistant:</strong> ${response}</p>;
+                    document.getElementById('chatbotBody').appendChild(botMessage);
+                    
+                    // Scroll to bottom
+                    document.getElementById('chatbotBody').scrollTop = document.getElementById('chatbotBody').scrollHeight;
+                }, 1000);
+            }
+        });
+
+        // Allow sending message with Enter key
+        document.getElementById('chatInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('sendMessage').click();
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
